@@ -40,5 +40,25 @@ def factorial(a:int) -> int:
         raise ValueError("Negative factorial not allowed")
     return math.factorial(a)
 
+@mcp.tool()
+def sine_func(a:float) -> float:
+
+    return math.sin(a)
+
+@mcp.tool()
+def cosine_func(a:float) -> float:
+
+    return math.cos(a)
+
+@mcp.tool()
+def tangent_func(a:float) -> float:
+
+    return math.tan(a)
+
+@mcp.tool()
+def gcd(**a:int) -> int:
+
+    return math.gcd(a)
+
 if __name__ == "__main__":
     mcp.run(mcp.run(transport="stdio"))
