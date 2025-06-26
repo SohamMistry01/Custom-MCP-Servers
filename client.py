@@ -1,4 +1,4 @@
-from langchain_groq import  ChatGroq
+from langchain_groq import  ChatGroq 
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langgraph.prebuilt import create_react_agent
 import os
@@ -23,9 +23,10 @@ async def main():
     tools = await client.get_tools()
     model = ChatGroq(model="qwen-qwq-32b")
     agent = create_react_agent(model, tools)
+    user_input = input("Ask any mathematical equation: ")
 
     math_response = await agent.ainvoke(
-        {"messages":[{"role":"user", "content":"Solve ((34+30)^2)/1024 "}]}
+        {"messages":[{"role":"user", "content":f"Solve {user_input}."}]}
     )
     
     print("Math response: ", math_response['messages'][-1].content)
